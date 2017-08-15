@@ -2,11 +2,13 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-// Import child components (tabs)
+// Import child components
+import { LessonPlanner } from './LessonPlanner/LessonPlanner';
 
 // Setup the bootstrapper for the app ready for react
 const AppRouterBootstrap = () => (
     <div>
+        <LessonPlanner />
     </div>
 );
 
