@@ -1,0 +1,28 @@
+{
+  "name": "keyword-lesson-plan-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "serve": "webpack-dev-server --progress",
+    "tsc": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Keyword Education",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "typescript": "^2.4.2",
+    "@types/react": "~16.0.2",
+    "@types/react-dom": "~15.5.2",
+    "webpack": "~3.5.4",
+    "webpack-dev-server": "~2.7.1",
+    "ts-loader": "~2.3.2",
+    "html-webpack-plugin": "~2.30.1"
+  }
+}
