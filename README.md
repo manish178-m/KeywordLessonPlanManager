@@ -5,7 +5,7 @@ This readme will go through the basics of this soure code. It will cover the fol
 1. [What is TypeScript?](#what-is-typescript)
 2. [What is Webpack?](#what-is-webpack)
 3. [How do I download and run this code?](how-do-i-download-and-run-this-code)
-4. [Folder structure](#folder-structure)
+4. [Folder and file structure](#folder-and-file-structure)
 
 ## What is Typescript?
 TypeScript is a version of JavaScript written to make it more reliable and less error prone. You write TypeScript in almost the exact same way as you would JavaScript except you can define data types on your variables and classes. 
@@ -49,8 +49,11 @@ Webpack is a "JavaScript bundler" which runs on your local development environme
 ## How do I download and run this code?
 Firstly, download Git...
 
-## Folder structure
+## Folder and file structure
 Here are the top level folders. Each child folder contains its own readme which explains what the children of that folder are for. Click a folder name below to navigate there.
 
-TEMP TEMP TEMP 
-[src folder](./src)
+File/Folder | On Github? | What is this folder for?
+---|---|---
+src | Yes | This is the folder where all our source code for the application is stored. In here is our TypeScript files and the PHP Api code.
+build | No | This is the out folder where webpack will output the bundled JavaScript and other files for the compiled website. This is not included on Github as it is automatically generated and we will never directly edit the contents of these files.
+node_modules | No | This folder holds all the packages downloaded from npm which we need to develop this application. Again, this is not checked into Github because these files are automatically handled by npm and we will not manually edit these files.
