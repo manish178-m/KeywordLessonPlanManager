@@ -111,14 +111,17 @@ Or if you use domain names, you can define any name you like such as "mywebsite.
         ```
     - In this version, all websites use port 80 and they also use a specific name, unique to the project. *However*, if you want to use this setup, you will also need to edit your host file to redirect those domain names back to xampp, otherwise your computer will try to find them online. 
     - To do this, firstly open Notepad as Administrator (it must be adminstrator or you won't be able to save the file we need to edit), then select open file and navigate to "C:\Windows\System32\drivers\etc" and edit the "hosts" file (it might not be visible to start with, just type hosts into the file open dialogue, it will find it). 
-    - In this file, add a row at the bottom like: **127.0.0.1 mywebsite.dev** where "mywebsite.dev" matches the value you entered in the xampp vhosts file. 
+    - In this file, add a row at the bottom like
+        - 127.0.0.1 mywebsite1.dev
+    - where "mywebsite1.dev" matches the value you entered in the xampp vhosts file. 
+    - Start Apache from the xampp control panel and then try to navigate to "mywebsite1.dev and it should now be serving the files in that folder like a real website. 
 
 ## Folder and file structure
 Here are the top level folders. Each child folder contains its own readme which explains what the children of that folder are for. Click a folder name below to navigate there.
 
 File/Folder | On Github? | What is this folder for?
 ---|---|---
-**src** | Yes | This is the folder where all our source code for the application is stored. In here is our TypeScript files and the PHP Api code.
-**build** | No | This is the out folder where webpack will output the bundled JavaScript and other files for the compiled website. This is not included on Github as it is automatically generated and we will never directly edit the contents of these files.
-**node_modules** | No | This folder holds all the packages downloaded from npm which we need to develop this application. Again, this is not checked into Github because these files are automatically handled by npm and we will not manually edit these files.
+**src/** | Yes | This is the folder where all our source code for the application is stored. In here is our TypeScript files and the PHP Api code.
+**build/** | No | This is the out folder where webpack will output the bundled JavaScript and other files for the compiled website. This is not included on Github as it is automatically generated and we will never directly edit the contents of these files.
+**node_modules/** | No | This folder holds all the packages downloaded from npm which we need to develop this application. Again, this is not checked into Github because these files are automatically handled by npm and we will not manually edit these files.
 **.gitignore** | Yes | This file lists all the folders and that we want to ignore when committing files into Github. For example we want to ignore "node_modules/" and "build/"
