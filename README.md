@@ -51,3 +51,6 @@ Firstly, download Git...
 
 ## Folder structure
 Here are the top level folders. Each child folder contains its own readme which explains what the children of that folder are for. Click a folder name below to navigate there.
+
+TEMP TEMP TEMP 
+[src folder](./src)
