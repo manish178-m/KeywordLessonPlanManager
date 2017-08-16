@@ -54,6 +54,6 @@ Here are the top level folders. Each child folder contains its own readme which 
 
 File/Folder | On Github? | What is this folder for?
 ---|---|---
-src | Yes | This is the folder where all our source code for the application is stored. In here is our TypeScript files and the PHP Api code.
-build | No | This is the out folder where webpack will output the bundled JavaScript and other files for the compiled website. This is not included on Github as it is automatically generated and we will never directly edit the contents of these files.
-node_modules | No | This folder holds all the packages downloaded from npm which we need to develop this application. Again, this is not checked into Github because these files are automatically handled by npm and we will not manually edit these files.
+**src** | <span style="color: #2ECC40;">Yes</span> | This is the folder where all our source code for the application is stored. In here is our TypeScript files and the PHP Api code.
+**build** | <span style="color: #FF4136;">No</span> | This is the out folder where webpack will output the bundled JavaScript and other files for the compiled website. This is not included on Github as it is automatically generated and we will never directly edit the contents of these files.
+**node_modules** | <span style="color: #FF4136;">No</span> | This folder holds all the packages downloaded from npm which we need to develop this application. Again, this is not checked into Github because these files are automatically handled by npm and we will not manually edit these files.
