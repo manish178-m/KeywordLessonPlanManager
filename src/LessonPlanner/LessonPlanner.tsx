@@ -32,6 +32,21 @@ export class LessonPlanner extends React.Component<ILessonPlannerProps, ILessonP
     }
 
     /**
+     * render() is the only function that is required by a react component, however there are other functions you can use too.
+     * These include:
+     *      - componentWillMount()
+     *      - componentDidMount()
+     *      - componentWillUnmount()
+     *      - componentDidUnmount()
+     * In my experience so far I have only ever really used componentDidMount()
+     * This function is used to gather any data from services or other sources that the component needs to use.
+     * Typically you would call your data service, then set the result data into the component "state"
+     */
+    componentDidMount() {
+
+    }
+
+    /**
      * The render function is where we write the html for this component
      * We can mix in javascript values by using the {handlebar} syntax
      * Since typescript gives javascript proper data types,

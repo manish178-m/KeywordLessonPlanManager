@@ -1,0 +1,2 @@
+# Keyword Lesson Plan Manager
+This readme will go through the basics of this soure code. It will cover the folder structure, basics of writing react components, and some instructions on how to write some modern JavaScript using TypeScript so that continued development should be fairly seamless. 
