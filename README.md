@@ -5,7 +5,8 @@ This readme will go through the basics of this soure code. It will cover the fol
 1. [What is TypeScript?](#what-is-typescript)
 2. [What is Webpack?](#what-is-webpack)
 3. [How do I download and run this code?](how-do-i-download-and-run-this-code)
-4. [Folder and file structure](#folder-and-file-structure)
+4. [How do I setup xampp and run the PHP Api?](#how-do-i-setup-xampp-and-run-the-php-api)
+5. [Folder and file structure](#folder-and-file-structure)
 
 ## What is Typescript?
 TypeScript is a version of JavaScript written to make it more reliable and less error prone. You write TypeScript in almost the exact same way as you would JavaScript except you can define data types on your variables and classes. 
@@ -44,16 +45,80 @@ Additionally, any errors like this will prevent TypeScript compilers from comple
 As you can see, TypeScript can easily help you to spot errors while writing the code rather than leaving it for your users to find. 
 
 ## What is Webpack?
-Webpack is a "JavaScript bundler" which runs on your local development environment. 
+Webpack is a "JavaScript bundler" which runs on your local development environment. Since we want to break our JavaScript (TypeScript) into separate files, a file for each react component or class, we need something to compile those files back into a single JavaScript file for the browser to read. Webpack has the ability to do this, and uses the webpack.config.js config file to define how to compile our code. It also allows additional plugins known as "loaders" which can perform a multitude of different tasks while compiling our code. For example "ts-loader" can convert the TypeScript into plain JavaScript, then that resulting JavaScript is then compiled into a single file. 
 
 ## How do I download and run this code?
-Firstly, download Git...
+Firstly, download [Git](https://git-scm.com/downloads) and a GUI of your choice for Git. I recommend [TortoiseGit](https://tortoisegit.org/download/) as it provides nice context menu options for git commands. I suggest setting all the defaults for both these applications except when asked for your name and email address. In these files, I would use the same details as your Github account. 
+
+## How do I setup xampp and run the PHP Api?
+Firstly, download and install [xampp](https://www.apachefriends.org). You can use the default xampp folder (usually C:\xampp\htdocs) and download the Github repository into this folder. Or if you follow these steps you can configure xampp to serve files from anywhere on your file system. 
+- From the root of your xampp installation, find the file "\apache\conf\extra\httpd-vhosts.conf" and edit it with any text editor. 
+- You can either use domain names, or port numbers. If you use port numbers then you can access each local website you add here through "http://localhost: 81", "http://localhost:82", etc. 
+Or if you use domain names, you can define any name you like such as "mywebsite.dev" (I like to use .dev so there will never be a conflict with a real website on the internet).
+    - If you want to use port numbers you can add something like this: 
+        ```xml
+        NameVirtualHost *:80
+
+        <VirtualHost *:81>
+            DocumentRoot C:/www/myfolder1
+            ServerName locahost
+
+            <Directory "C:/www/myfolder1">
+                Options Indexes FollowSymLinks Includes ExecCGI
+                AllowOverride All
+                Require all granted
+            </Directory>
+        </VirtualHost>
+
+        <VirtualHost *:82>
+            DocumentRoot C:/www/myfolder2
+            ServerName localhost
+
+            <Directory "C:/www/myfolder2">
+                Options Indexes FollowSymLinks Includes ExecCGI
+                AllowOverride All
+                Require all granted
+            </Directory>
+        </VirtualHost>
+        ```
+        This should be fairly self-explanatory. The DocumentRoot and <Directory> tag are the folder where your code is stored, the "*:81" bit defines which port to use for this folder. And the rest you can leave as it is and don't worry too much about it. 
+    
+    - However if you want something a little nicer to read you can add something like this instead: 
+        ```xml
+        NameVirtualHost *:80
+
+        <VirtualHost *:80>
+            DocumentRoot C:/www/myfolder1
+            ServerName mywebsite1.dev
+
+            <Directory "C:/www/myfolder1">
+                Options Indexes FollowSymLinks Includes ExecCGI
+                AllowOverride All
+                Require all granted
+            </Directory>
+        </VirtualHost>
+
+        <VirtualHost *:80>
+            DocumentRoot C:/www/myfolder2
+            ServerName mywebsite2.dev
+
+            <Directory "C:/www/myfolder2">
+                Options Indexes FollowSymLinks Includes ExecCGI
+                AllowOverride All
+                Require all granted
+            </Directory>
+        </VirtualHost>
+        ```
+    - In this version, all websites use port 80 and they also use a specific name, unique to the project. *However*, if you want to use this setup, you will also need to edit your host file to redirect those domain names back to xampp, otherwise your computer will try to find them online. 
+    - To do this, firstly open Notepad as Administrator (it must be adminstrator or you won't be able to save the file we need to edit), then select open file and navigate to "C:\Windows\System32\drivers\etc" and edit the "hosts" file (it might not be visible to start with, just type hosts into the file open dialogue, it will find it). 
+    - In this file, add a row at the bottom like: **127.0.0.1 mywebsite.dev** where "mywebsite.dev" matches the value you entered in the xampp vhosts file. 
 
 ## Folder and file structure
 Here are the top level folders. Each child folder contains its own readme which explains what the children of that folder are for. Click a folder name below to navigate there.
 
 File/Folder | On Github? | What is this folder for?
 ---|---|---
-**src** | <span style="color: #2ECC40;">Yes</span> | This is the folder where all our source code for the application is stored. In here is our TypeScript files and the PHP Api code.
-**build** | <span style="color: #FF4136;">No</span> | This is the out folder where webpack will output the bundled JavaScript and other files for the compiled website. This is not included on Github as it is automatically generated and we will never directly edit the contents of these files.
-**node_modules** | <span style="color: #FF4136;">No</span> | This folder holds all the packages downloaded from npm which we need to develop this application. Again, this is not checked into Github because these files are automatically handled by npm and we will not manually edit these files.
+**src** | Yes | This is the folder where all our source code for the application is stored. In here is our TypeScript files and the PHP Api code.
+**build** | No | This is the out folder where webpack will output the bundled JavaScript and other files for the compiled website. This is not included on Github as it is automatically generated and we will never directly edit the contents of these files.
+**node_modules** | No | This folder holds all the packages downloaded from npm which we need to develop this application. Again, this is not checked into Github because these files are automatically handled by npm and we will not manually edit these files.
+**.gitignore** | Yes | This file lists all the folders and that we want to ignore when committing files into Github. For example we want to ignore "node_modules/" and "build/"
