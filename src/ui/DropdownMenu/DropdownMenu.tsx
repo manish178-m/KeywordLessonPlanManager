@@ -10,4 +10,16 @@ export class DropdownMenu extends React.Component<IDropdownMenuProps, IDropdownM
             activeId: null
         };
     }
+
+    render(): JSX.Element {
+        let itemsDisplay: JSX.Element[] = this.props.listItems.map((item) => {
+            return (<span key={item.id}>{item.text}</span>);
+        });
+
+        return (
+            <div className="kw-dropdown">
+                {itemsDisplay}
+            </div>
+        );
+    }
 }
