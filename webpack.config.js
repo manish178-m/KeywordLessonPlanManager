@@ -1,3 +1,8 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Most of this file you will probably never (or at least very rarely need to change)                   //
+// Once it has been set up correctly once you'll pretty much leave it as it and just run it when needed //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // This library is for generating the output html root file from a template. (Our template will be lazy, just an exact html file).
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -40,18 +45,19 @@ var config = {
             }
         ]
     },
-    watch: true, // Watch for file changes
+    watch: true, // Watch for file changes and automatically rebuild project and refresh browser
     // Here we will set up some stuff to tell the dev-server how to run
-    devtool: "source-map",
+    devtool: "source-map", // We want to have sourcemaps because they will allow us to see the original files when debugging in the browser. Very useful as the compiled file is meaningless nonsense for us
     devServer: {
         contentBase: path.join(__dirname, "src"), // Where to serve static files from. We have assets inside "src" so we use "src" so the server can find these files
         compress: true, // Enable gzip compression
         port: 3000,
         historyApiFallback: true, // This allows us to enable HTML5 style single page deep linking on webpack-dev-server. Production server will need configuring too
-        stats: "errors-only",
-        open: true,
-        openPage: ''
+        stats: "errors-only", // This limits the output in the console and make it nicer to read
+        open: true, // Tells the server to automatically open the browser
+        openPage: '' // And what page to open (just the root for us)
     },
+    // Finally we register any plugins that we want to use and any global settings we have for them
     plugins: [
         new HtmlWebpackPlugin({
             title: "ReactJS demo for James",
