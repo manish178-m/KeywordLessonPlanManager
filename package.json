@@ -1,4 +1,3 @@
-// TODO: Add lots of nice friendly comments
 {
   "name": "keyword-lesson-plan-manager",
   "version": "1.0.0",
@@ -24,6 +23,8 @@
     "webpack": "~3.5.4",
     "webpack-dev-server": "~2.7.1",
     "ts-loader": "~2.3.2",
+    "css-loader": "~0.28.4",
+    "style-loader": "~0.18.2",
     "html-webpack-plugin": "~2.30.1"
   }
 }

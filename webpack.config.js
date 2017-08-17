@@ -25,6 +25,18 @@ var config = {
                 test: /\.tsx?$/, //RegEx telling webpack what to let this loader work on. 
                 use: "ts-loader", // The name of the loader (or other plugin) to use. 
                 exclude: /node_modules/, // RegEx to tell what to exclude. Always exclude node_modules folder!
+            },
+            {
+                test: /\.css$/,
+                use: "style-loader",
+            },
+            {
+                test: /\.css$/,
+                loader: 'css-loader',
+                query: {
+                    modules: true,
+                    localIdentName: '[name]__[local]___[hash:base64:5]'
+                }
             }
         ]
     },

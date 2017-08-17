@@ -71,6 +71,6 @@ export class LessonPlanMenuService {
         }
 
         // The menu is now a nested array of courses, units, and lessons, ready to enter into the webpage.
-        return await menu;
+        return menu;
     }
 }
