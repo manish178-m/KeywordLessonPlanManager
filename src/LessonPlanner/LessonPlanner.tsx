@@ -67,9 +67,7 @@ export class LessonPlanner extends React.Component<ILessonPlannerProps, ILessonP
          * In this example "BuildMenu()" returns a promise for the ILessonPlanMenu interface. In the "then()" function
          * we can specify some callback code to run after we have the result of that promise. 
          */
-        debugger;
         menuService.BuildMenu().then((result: ILessonPlanMenu) => {
-            debugger;
             // this.setState is used to change or update specific values in the state.
             this.setState({
                 lessonMenu: result

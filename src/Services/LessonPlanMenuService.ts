@@ -28,8 +28,6 @@ export class LessonPlanMenuService {
         let units = await this.unitService.GetAllUnits();
         let lessons = await this.lessonService.GetAllLessons();
 
-        debugger;
-
         // Build up the nested list
         let menu: ILessonPlanMenu = { courseList: [] };
 
