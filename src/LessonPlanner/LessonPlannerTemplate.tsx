@@ -7,6 +7,9 @@ import * as React from 'react';
 
 import { ILessonPlannerProps, ILessonPlannerState } from './ILessonPlanner';
 
+import { ILessonPlanMenu, ICourseMenuItem, IUnitMenuItem, ILessonMenuItem } from '../Services/ClientData/LessonPlanMenu';
+import { LessonPlanMenuService } from '../Services/LessonPlanMenuService';
+
 export class LessonPlanner extends React.Component<ILessonPlannerProps, ILessonPlannerState> {
     constructor(props: ILessonPlannerProps) {
         super(props);

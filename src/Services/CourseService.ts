@@ -9,7 +9,7 @@ export class CourseService {
 
     }
 
-    GetAllCourses(): ICourse[] {
-        return courses;
+    public async GetAllCourses(): Promise<ICourse[]> {
+        return new Promise<ICourse[]>((resolve, reject) => { resolve(courses); });
     }
 }

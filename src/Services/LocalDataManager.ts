@@ -3,4 +3,12 @@
  */
 export class LocalDataManager {
     constructor() { }
+
+    LocalCopyExists(): boolean {
+        return false;
+    }
+
+    IsBrowserOnline(): boolean {
+        return true;
+    }
 }

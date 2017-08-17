@@ -14,6 +14,12 @@ import * as React from 'react';
 import { ILessonPlannerProps, ILessonPlannerState } from './ILessonPlanner';
 
 /**
+ * Import Services this component will need to use and any acsociated interfaces/data types we want to use
+ */
+import { ILessonPlanMenu, ICourseMenuItem, IUnitMenuItem, ILessonMenuItem } from '../Services/ClientData/LessonPlanMenu';
+import { LessonPlanMenuService } from '../Services/LessonPlanMenuService';
+
+/**
  * Each component, which can be thought of as any individual bit of html in your app
  * is a class which extends React.Component
  * React.Component accepts two interfaces, the props and state for this component
@@ -29,6 +35,13 @@ export class LessonPlanner extends React.Component<ILessonPlannerProps, ILessonP
          * in the constructor. In this case, the parent class expects the props parameter.
          */
         super(props);
+
+        /**
+         * Set the initial value for the component state
+         */
+        this.state = {
+            lessonMenu: null // <- we will fetch this from the service, so we need to set it as null for now
+        };
     }
 
     /**
@@ -43,7 +56,25 @@ export class LessonPlanner extends React.Component<ILessonPlannerProps, ILessonP
      * Typically you would call your data service, then set the result data into the component "state"
      */
     componentDidMount() {
+        // Usually componentDidMount is the best place to make service calls, so here we will fetch the lesson menu and update the state
+        let menuService = new LessonPlanMenuService();
 
+        /**
+         * Unlike ActionScript which is mostly event driven, the primary means of listening for data in JavaScript
+         * is called "Promises". A function in some class somewhere can return a "promise" of a specific data type.
+         * Basically saying "I promise that I will return this type of data at some point."
+         * You can then listen for the result of this promise using "then()".
+         * In this example "BuildMenu()" returns a promise for the ILessonPlanMenu interface. In the "then()" function
+         * we can specify some callback code to run after we have the result of that promise. 
+         */
+        debugger;
+        menuService.BuildMenu().then((result: ILessonPlanMenu) => {
+            debugger;
+            // this.setState is used to change or update specific values in the state.
+            this.setState({
+                lessonMenu: result
+            });
+        });
     }
 
     /**

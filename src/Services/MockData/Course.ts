@@ -1,6 +1,6 @@
 import { ICourse } from '../ClientData/Course';
 
-export const courses = [
+export const courses: ICourse[] = [
     {
         CourseId: 1,
         CourseName: "Pockets 1"
@@ -17,4 +17,4 @@ export const courses = [
         CourseId: 4,
         CourseName: "Backpack 1"
     }
-] as ICourse[];
+];

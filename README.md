@@ -53,7 +53,7 @@ Firstly, download [Git](https://git-scm.com/downloads) and a GUI of your choice 
 ## How do I setup xampp and run the PHP Api?
 Firstly, download and install [xampp](https://www.apachefriends.org). You can use the default xampp folder (usually C:\xampp\htdocs) and download the Github repository into this folder. Or if you follow these steps you can configure xampp to serve files from anywhere on your file system. 
 - From the root of your xampp installation, find the file "\apache\conf\extra\httpd-vhosts.conf" and edit it with any text editor. 
-- You can either use domain names, or port numbers. If you use port numbers then you can access each local website you add here through "http://localhost: 81", "http://localhost:82", etc. 
+- You can either use domain names, or port numbers. If you use port numbers then you can access each local website you add here through "http://localhost:81", "http://localhost:82", etc. 
 Or if you use domain names, you can define any name you like such as "mywebsite.dev" (I like to use .dev so there will never be a conflict with a real website on the internet).
     - If you want to use port numbers you can add something like this: 
         ```xml
