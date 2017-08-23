@@ -1,0 +1,37 @@
+.kw-dropdown {
+    display: inline-block;
+}
+
+.kw-dropdown-inner {
+    position: relative; /* So we can position the selector section when it is visible */
+}
+
+.kw-dropdown-chosen {
+    border: 1px solid #001f3f;
+    background-color: #00A4F9;
+    border-radius: 4px;
+    padding: 6px 12px;
+    margin: 0 5px 5px 0;
+    color: #ccc;
+}
+
+.kw-dropdown-chosen.enabled {
+    border: 1px solid #001f3f;
+    background-color: #0074D9;
+    color: #fff;
+}
+
+.kw-dropdown-chosen:hover {
+    cursor: pointer;
+}
+
+.kw-dropdown-options {
+    display: none;
+    padding: 8px;
+    background-color: #4DC1FF;
+}
+
+.kw-dropdown-options.visible {
+    display: block;
+    float: left;
+}

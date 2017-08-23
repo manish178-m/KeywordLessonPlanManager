@@ -90,7 +90,7 @@ export class LessonPlannerLessonMenu extends React.Component<ILessonPlannerLesso
                     listItems={lessonsMenuItems}
                     activeId={this.state.chosenLessonId}
                     disabledText="Choose a unit first"
-                    disabled={this.state.chosenCourseId == null}
+                    disabled={this.state.chosenUnitId == null}
                 />
             </div>
         );

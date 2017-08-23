@@ -5,11 +5,19 @@ import { IDropdownMenuProps, IDropdownMenuState } from './IDropdownMenu';
 export class DropdownMenu extends React.Component<IDropdownMenuProps, IDropdownMenuState> {
     constructor(props: IDropdownMenuProps) {
         super(props);
+
+        this.state = { dropdownVisible: false };
     }
 
     handleItemSelected(id: number): void {
         console.log("Selected: " + id);
+        this.setState({ dropdownVisible: false });
         this.props.onChange(id);
+    }
+
+    handleDropdownVisibleToggle() {
+        if (!this.props.disabled)
+            this.setState({ dropdownVisible: !this.state.dropdownVisible });
     }
 
     render(): JSX.Element {
@@ -21,6 +29,7 @@ export class DropdownMenu extends React.Component<IDropdownMenuProps, IDropdownM
             );
         }) : null;
 
+        // Decide what the title of this dropdown should say depending on current state
         let chosenDisplayText = this.props.activeId != null ?
             this.props.listItems[this.props.listItems.map((l) => { return l.id }).indexOf(this.props.activeId)].text :
             this.props.inactiveText;
@@ -28,13 +37,19 @@ export class DropdownMenu extends React.Component<IDropdownMenuProps, IDropdownM
         // Override display text if disabled. Disable takes priority over no active selection
         chosenDisplayText = this.props.disabled ? this.props.disabledText : chosenDisplayText;
 
+        // Setup styles for dropdown bit
+        let dropdownClasses: string = this.state.dropdownVisible ? "kw-dropdown-options visible" : "kw-dropdown-options";
+        let dropdownSelectorClasses: string = this.props.disabled ? "kw-dropdown-chosen" : "kw-dropdown-chosen enabled";
+
         return (
-            <div className="kw-dropdown" style={{ border: "2px solid #666" }}>
-                <div className="kw-dropdown-chosen">
+            <div className="kw-dropdown">
+                <div className={dropdownSelectorClasses} onClick={this.handleDropdownVisibleToggle.bind(this)}>
                     {chosenDisplayText}
                 </div>
 
-                {itemsDisplay}
+                <div className={dropdownClasses}>
+                    {itemsDisplay}
+                </div>
             </div>
         );
     }
