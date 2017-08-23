@@ -15,6 +15,6 @@ export const courses: ICourse[] = [
     },
     {
         CourseId: 4,
-        CourseName: "Backpack 1"
+        CourseName: "Backpack 2"
     }
 ];

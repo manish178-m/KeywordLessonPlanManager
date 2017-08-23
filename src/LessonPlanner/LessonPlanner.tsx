@@ -19,6 +19,11 @@ import { ILessonPlannerProps, ILessonPlannerState } from './ILessonPlanner';
 import { ILessonPlanMenu, ICourseMenuItem, IUnitMenuItem, ILessonMenuItem } from '../Services/ClientData/LessonPlanMenu';
 import { LessonPlanMenuService } from '../Services/LessonPlanMenuService';
 
+/**
+ * Import child components
+ */
+import { LessonPlannerLessonMenu } from './LessonPlannerLessonMenu';
+
 // Testing stuff imports
 import { Collapsable } from '../ui/Collapsable/Collapsable';
 
@@ -79,6 +84,14 @@ export class LessonPlanner extends React.Component<ILessonPlannerProps, ILessonP
     }
 
     /**
+     * This is the callback function passed into the lesson plan menu to handle when the user selects a lesson.
+     * @param lessonId This ID of the lesson which is returned from the menu
+     */
+    handleLessonChosen(lessonId: number): void {
+
+    }
+
+    /**
      * The render function is where we write the html for this component
      * We can mix in javascript values by using the {handlebar} syntax
      * Since typescript gives javascript proper data types,
@@ -92,6 +105,8 @@ export class LessonPlanner extends React.Component<ILessonPlannerProps, ILessonP
         return (
             // We can only return 1 top level html component here
             <div>
+                <LessonPlannerLessonMenu menu={this.state.lessonMenu} onLessonChosen={this.handleLessonChosen.bind(this)} />
+
                 <Collapsable openDefault={false} title="Open me">
                     Here is some content!
                 </Collapsable>
