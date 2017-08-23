@@ -19,6 +19,9 @@ import { ILessonPlannerProps, ILessonPlannerState } from './ILessonPlanner';
 import { ILessonPlanMenu, ICourseMenuItem, IUnitMenuItem, ILessonMenuItem } from '../Services/ClientData/LessonPlanMenu';
 import { LessonPlanMenuService } from '../Services/LessonPlanMenuService';
 
+// Testing stuff imports
+import { Collapsable } from '../ui/Collapsable/Collapsable';
+
 /**
  * Each component, which can be thought of as any individual bit of html in your app
  * is a class which extends React.Component
@@ -88,7 +91,11 @@ export class LessonPlanner extends React.Component<ILessonPlannerProps, ILessonP
          */
         return (
             // We can only return 1 top level html component here
-            <div></div>
+            <div>
+                <Collapsable openDefault={false} title="Open me">
+                    Here is some content!
+                </Collapsable>
+            </div>
         );
     }
 }

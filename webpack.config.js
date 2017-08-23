@@ -55,7 +55,23 @@ var config = {
         historyApiFallback: true, // This allows us to enable HTML5 style single page deep linking on webpack-dev-server. Production server will need configuring too
         stats: "errors-only", // This limits the output in the console and make it nicer to read
         open: true, // Tells the server to automatically open the browser
-        openPage: '' // And what page to open (just the root for us)
+        openPage: '', // And what page to open (just the root for us)
+        proxy: {
+            // This clever little section allows us to re-route specific traffic into something else. 
+            // In this case we want anything going to "/api" (our PHP pages) to be sent to xampp instead of webpack. 
+            // It is possible to run php inside webpack but as I have never tried it as yet, this will do nicely for now.
+            // We need to mutually agree on a "localhost" alias and port for the xampp files. 
+            "/api": {
+                target: {
+                    host: "keyword.dev",
+                    protocol: "http",
+                    port: 80
+                },
+                ignorePath: false,
+                changeOrigin: true,
+                secure: false
+            }
+        }
     },
     // Finally we register any plugins that we want to use and any global settings we have for them
     plugins: [
