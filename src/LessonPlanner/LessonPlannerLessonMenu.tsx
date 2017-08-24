@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { ILessonPlannerLessonMenuProps, ILessonPlannerLessonMenuState } from './ILessonPlannerLessonMenu';
 
+import { DropdownGroup } from '../ui/DropdownMenu/DropdownGroup';
 import { DropdownMenu } from '../ui/DropdownMenu/DropdownMenu';
 import { IDropdownMenuListItem } from '../ui/DropdownMenu/IDropdownMenu';
 
@@ -65,7 +66,7 @@ export class LessonPlannerLessonMenu extends React.Component<ILessonPlannerLesso
         });
 
         return (
-            <div>
+            <DropdownGroup>
                 <DropdownMenu
                     inactiveText="Choose a course"
                     onChange={this.handleCourseChosen.bind(this)}
@@ -92,7 +93,7 @@ export class LessonPlannerLessonMenu extends React.Component<ILessonPlannerLesso
                     disabledText="Choose a unit first"
                     disabled={this.state.chosenUnitId == null}
                 />
-            </div>
+            </DropdownGroup>
         );
     }
 }

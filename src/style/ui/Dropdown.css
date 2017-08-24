@@ -1,37 +1,79 @@
-.kw-dropdown {
-    display: inline-block;
+.kw-dropdown-group ul {
+	display: none;
 }
 
-.kw-dropdown-inner {
-    position: relative; /* So we can position the selector section when it is visible */
-}
+	.kw-dropdown-group li.visible > ul {
+		display: block;
+	}
 
-.kw-dropdown-chosen {
-    border: 1px solid #001f3f;
-    background-color: #00A4F9;
-    border-radius: 4px;
-    padding: 6px 12px;
-    margin: 0 5px 5px 0;
-    color: #ccc;
+.kw-dropdown-group {
+	background: #efefef; 
+	background: linear-gradient(top, #efefef 0%, #bbbbbb 100%);  
+	background: -moz-linear-gradient(top, #efefef 0%, #bbbbbb 100%); 
+	background: -webkit-linear-gradient(top, #efefef 0%,#bbbbbb 100%); 
+	/* box-shadow: 0px 0px 9px rgba(0,0,0,0.15); */
+	padding: 0 10px;
+	border-radius: 10px;  
+	list-style: none;
+	position: relative;
+	display: inline-table;
 }
-
-.kw-dropdown-chosen.enabled {
-    border: 1px solid #001f3f;
-    background-color: #0074D9;
-    color: #fff;
-}
-
-.kw-dropdown-chosen:hover {
-    cursor: pointer;
-}
-
-.kw-dropdown-options {
-    display: none;
-    padding: 8px;
-    background-color: #4DC1FF;
-}
-
-.kw-dropdown-options.visible {
-    display: block;
-    float: left;
-}
+	.kw-dropdown-group:after {
+        content: ""; 
+        clear: both; 
+        display: block;
+    }
+    
+	.kw-dropdown-group li {
+		float: left;
+    }
+        .kw-dropdown-group li.enabled:hover, .kw-dropdown-group li.enabled.visible {
+            background: #4b545f;
+			background: linear-gradient(top, #4f5964 0%, #5f6975 40%);
+			background: -moz-linear-gradient(top, #4f5964 0%, #5f6975 40%);
+            background: -webkit-linear-gradient(top, #4f5964 0%,#5f6975 40%);
+            cursor: pointer;
+        }
+			.kw-dropdown-group li.enabled:hover a, .kw-dropdown-group li.enabled.visible a {
+				color: #fff;
+			}
+		
+		.kw-dropdown-group li a {
+            display: block; 
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #aaaaaa;
+        }
+        .kw-dropdown-group li.enabled a {
+            color: #757575; 
+        }
+			
+		
+	.kw-dropdown-group ul {
+        background: #5f6975; 
+        border-radius: 0px; 
+        padding: 0;
+        position: absolute; 
+        top: 100%;
+	}
+		.kw-dropdown-group ul li {
+            list-style-type: none;
+			float: none; 
+			border-top: 1px solid #6b727c;
+            border-bottom: 1px solid #575f6a; 
+            position: relative;
+		}
+			.kw-dropdown-group ul li a {
+				padding: 10px 20px;
+				color: #fff;
+			}	
+				.kw-dropdown-group ul li a:hover {
+					background: #4b545f;
+				}
+		
+	.kw-dropdown-group ul ul {
+        position: absolute; 
+        left: 100%; 
+        top:0;
+	}
+		

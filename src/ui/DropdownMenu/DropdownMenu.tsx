@@ -23,9 +23,9 @@ export class DropdownMenu extends React.Component<IDropdownMenuProps, IDropdownM
     render(): JSX.Element {
         let itemsDisplay: JSX.Element[] = this.props.listItems != null ? this.props.listItems.map((item) => {
             return (
-                <div key={item.id}>
+                <li key={item.id}>
                     <a href="#" onClick={this.handleItemSelected.bind(this, item.id)}>{item.text}</a>
-                </div>
+                </li>
             );
         }) : null;
 
@@ -38,19 +38,27 @@ export class DropdownMenu extends React.Component<IDropdownMenuProps, IDropdownM
         chosenDisplayText = this.props.disabled ? this.props.disabledText : chosenDisplayText;
 
         // Setup styles for dropdown bit
-        let dropdownClasses: string = this.state.dropdownVisible ? "kw-dropdown-options visible" : "kw-dropdown-options";
-        let dropdownSelectorClasses: string = this.props.disabled ? "kw-dropdown-chosen" : "kw-dropdown-chosen enabled";
+        let dropdownMasterClasses: string[] = ["kw-dropdown"];
+        if (this.state.dropdownVisible) dropdownMasterClasses.push("visible");
+        if (!this.props.disabled) dropdownMasterClasses.push("enabled");
+
+        let dropdownParentClasses: string = dropdownMasterClasses.join(" ");
+
+        console.log(dropdownMasterClasses);
+
+        let dropdownClasses: "kw-dropdown-options";
+        let dropdownSelectorClasses: string = "kw-dropdown-chosen";
 
         return (
-            <div className="kw-dropdown">
-                <div className={dropdownSelectorClasses} onClick={this.handleDropdownVisibleToggle.bind(this)}>
+            <li className={dropdownParentClasses}>
+                <a className={dropdownSelectorClasses} onClick={this.handleDropdownVisibleToggle.bind(this)}>
                     {chosenDisplayText}
-                </div>
+                </a>
 
-                <div className={dropdownClasses}>
+                <ul className={dropdownClasses}>
                     {itemsDisplay}
-                </div>
-            </div>
+                </ul>
+            </li>
         );
     }
 }
