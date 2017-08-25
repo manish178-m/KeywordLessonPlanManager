@@ -12,7 +12,7 @@ export function LessonPlansData(): ILessonPlan {
         for (var j = 0; j < Math.random() * 10; j++) {
             let game: string = randomGameNames.splice(Math.random() * randomGameNames.length, 1)[0];
 
-            plan.Introductions.push({
+            plan.Games.push({
                 Id: (i + 1) * (j + 1) * 1,
                 Name: game,
                 Description: game
@@ -38,7 +38,7 @@ export function LessonPlansData(): ILessonPlan {
         for (var j = 0; j < Math.random() * 10; j++) {
             let intro: string = randomIntroductionNames.splice(Math.random() * randomIntroductionNames.length, 1)[0];
 
-            plan.Games.push({
+            plan.Introductions.push({
                 Id: (i + 1) * (j + 1) * 3,
                 Name: intro,
                 Description: intro

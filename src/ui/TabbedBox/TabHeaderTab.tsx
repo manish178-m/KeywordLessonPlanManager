@@ -1,6 +1,10 @@
 import * as React from 'react';
 
-interface IProps { }
+interface IProps {
+    tabIndex: number;
+    labelText: string;
+    onTabClick: (index: number) => void;
+}
 
 interface IState { }
 
@@ -11,11 +15,16 @@ export class TabHeaderTab extends React.Component<IProps, IState> {
         this.state = {};
     }
 
+    handleTabClick(e: Event): void {
+        e.preventDefault();
+        this.props.onTabClick(this.props.tabIndex);
+    }
+
     render(): JSX.Element {
         return (
-            <div>
-                Tab
-            </div>
+            <a href="#" style={{ margin: "4px" }} onClick={this.handleTabClick.bind(this)}>
+                {this.props.labelText}
+            </a>
         );
     }
 }

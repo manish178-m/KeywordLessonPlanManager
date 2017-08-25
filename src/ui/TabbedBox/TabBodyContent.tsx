@@ -14,7 +14,7 @@ export class TabBodyContent extends React.Component<IProps, IState> {
     render(): JSX.Element {
         return (
             <div>
-                Tab Body
+                {this.props.children}
             </div>
         );
     }

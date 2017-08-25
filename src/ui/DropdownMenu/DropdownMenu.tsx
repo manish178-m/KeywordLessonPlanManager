@@ -9,8 +9,8 @@ export class DropdownMenu extends React.Component<IDropdownMenuProps, IDropdownM
         this.state = { dropdownVisible: false };
     }
 
-    handleItemSelected(id: number): void {
-        console.log("Selected: " + id);
+    handleItemSelected(id: number, e: Event): void {
+        e.preventDefault();
         this.setState({ dropdownVisible: false });
         this.props.onChange(id);
     }
@@ -43,8 +43,6 @@ export class DropdownMenu extends React.Component<IDropdownMenuProps, IDropdownM
         if (!this.props.disabled) dropdownMasterClasses.push("enabled");
 
         let dropdownParentClasses: string = dropdownMasterClasses.join(" ");
-
-        console.log(dropdownMasterClasses);
 
         let dropdownClasses: "kw-dropdown-options";
         let dropdownSelectorClasses: string = "kw-dropdown-chosen";

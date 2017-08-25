@@ -18,7 +18,6 @@ export class LessonPlannerLessonMenu extends React.Component<ILessonPlannerLesso
     }
 
     handleCourseChosen(id: number): void {
-        console.log(this.props.menu.courseList[this.props.menu.courseList.map((c) => { return c.courseId }).indexOf(id)]);
         this.setState({
             chosenCourseId: id,
             chosenUnitId: null,
@@ -38,7 +37,6 @@ export class LessonPlannerLessonMenu extends React.Component<ILessonPlannerLesso
     }
 
     handlChosenLesson(id: number): void {
-        console.log(id);
         this.setState({ chosenLessonId: id });
         this.props.onLessonChosen(id);
     }
