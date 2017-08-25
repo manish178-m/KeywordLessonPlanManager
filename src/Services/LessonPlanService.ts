@@ -9,7 +9,7 @@ export class LessonPlanService {
 
     }
 
-    public async GetAllLessonPlans(lessonId: number): Promise<ILessonPlan[]> {
-        return new Promise<ILessonPlan[]>((resolve, reject) => { resolve(LessonPlansData()); });
+    public async GetLessonPlan(lessonId: number): Promise<ILessonPlan> {
+        return new Promise<ILessonPlan>((resolve, reject) => { resolve(LessonPlansData()); });
     }
 }

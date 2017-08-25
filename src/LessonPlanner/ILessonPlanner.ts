@@ -15,5 +15,5 @@ export interface ILessonPlannerProps {
 // and can only be edited by that component. 
 export interface ILessonPlannerState {
     lessonMenu: ILessonPlanMenu;
-    lessonPlans: ILessonPlan[];
+    lessonPlans: ILessonPlan;
 }

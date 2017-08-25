@@ -1,10 +1,10 @@
 import { ILessonPlan } from '../ClientData/LessonPlan';
 
-export function LessonPlansData() {
+export function LessonPlansData(): ILessonPlan {
     let lessonPlans: ILessonPlan[] = [];
 
     for (var i = 0; i < Math.random() * 5; i++) {
-        let plan: ILessonPlan = { LessonPlanName: `Lesson plan ${i}`, Introductions: [], WarmUps: [], Games: [] };
+        let plan: ILessonPlan = { LessonPlanName: `Lesson plan ${i + 1}`, Introductions: [], WarmUps: [], Games: [] };
 
         // Generate random list of games
         let randomGameNames = ["Sticky ball", "Hammer game", "Jumping game", "Hoop game", "Tag game", "Magic game", "Awesome game", "Special game", "Random game", "Another game", "Cool game", "Silly game", "Fun game", "Final game"];
@@ -13,7 +13,7 @@ export function LessonPlansData() {
             let game: string = randomGameNames.splice(Math.random() * randomGameNames.length, 1)[0];
 
             plan.Introductions.push({
-                Id: ((i * j) * (i + j) * 1),
+                Id: (i + 1) * (j + 1) * 1,
                 Name: game,
                 Description: game
             });
@@ -26,7 +26,7 @@ export function LessonPlansData() {
             let warmup: string = randomWarmupNames.splice(Math.random() * randomWarmupNames.length, 1)[0];
 
             plan.WarmUps.push({
-                Id: ((i * j) * (i + j) * 2),
+                Id: (i + 1) * (j + 1) * 2,
                 Name: warmup,
                 Description: warmup
             });
@@ -39,7 +39,7 @@ export function LessonPlansData() {
             let intro: string = randomIntroductionNames.splice(Math.random() * randomIntroductionNames.length, 1)[0];
 
             plan.Games.push({
-                Id: ((i * j) * (i + j) * 3),
+                Id: (i + 1) * (j + 1) * 3,
                 Name: intro,
                 Description: intro
             });
@@ -48,9 +48,5 @@ export function LessonPlansData() {
         lessonPlans.push(plan);
     }
 
-    return lessonPlans;
+    return lessonPlans[0];
 }
-
-// Generate and export random plans
-// export const lessonPlans: ILessonPlan[] = [
-// ];

@@ -12,7 +12,7 @@ export class LessonPlanList extends React.Component<ILessonPlanListProps, ILesso
     render(): JSX.Element {
         return (
             <div>
-                {JSON.stringify(this.props.lessonPlans)}
+                <div style={{ fontSize: 9 }}>{JSON.stringify(this.props.lessonPlans)}</div>
             </div>
         );
     }

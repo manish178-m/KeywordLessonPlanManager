@@ -52,7 +52,7 @@ export class LessonPlanner extends React.Component<ILessonPlannerProps, ILessonP
          */
         this.state = {
             lessonMenu: null, // <- we will fetch this from the service, so we need to set it as null for now
-            lessonPlans: [] // <- set this to an empty array for now so that it is defined, but we don't see any data until we fetch some
+            lessonPlans: null // <- set this to an null for now so that it is defined, but we don't see any data until we fetch some
         };
     }
 
@@ -94,13 +94,13 @@ export class LessonPlanner extends React.Component<ILessonPlannerProps, ILessonP
     handleLessonChosen(lessonId: number): void {
         if (lessonId == null) {
             // If null is passed in this means that we have selected a different item from the menu somewhere, so why not clear the lesson plans to save confusion
-            this.setState({ lessonPlans: [] });
+            this.setState({ lessonPlans: null });
         }
         else {
             // Otherwise we fetch the lesson plan data for the chosen lesson
             let lpService = new LessonPlanService();
 
-            lpService.GetAllLessonPlans(lessonId).then((result) => {
+            lpService.GetLessonPlan(lessonId).then((result) => {
                 this.setState({
                     lessonPlans: result
                 });
@@ -128,6 +128,7 @@ export class LessonPlanner extends React.Component<ILessonPlannerProps, ILessonP
 
                 <LessonPlanList lessonPlans={this.state.lessonPlans} />
 
+                {/* TODO: Finish the javascript for this */}
                 <Collapsable openDefault={false} title="Open me">
                     Here is some content!
                 </Collapsable>
