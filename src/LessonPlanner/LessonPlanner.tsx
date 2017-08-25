@@ -19,10 +19,13 @@ import { ILessonPlannerProps, ILessonPlannerState } from './ILessonPlanner';
 import { ILessonPlanMenu, ICourseMenuItem, IUnitMenuItem, ILessonMenuItem } from '../Services/ClientData/LessonPlanMenu';
 import { LessonPlanMenuService } from '../Services/LessonPlanMenuService';
 
+import { LessonPlanService } from '../Services/LessonPlanService';
+
 /**
  * Import child components
  */
 import { LessonPlannerLessonMenu } from './LessonPlannerLessonMenu';
+import { LessonPlanList } from './LessonPlanList/LessonPlanList';
 
 // Testing stuff imports
 import { Collapsable } from '../ui/Collapsable/Collapsable';
@@ -48,7 +51,8 @@ export class LessonPlanner extends React.Component<ILessonPlannerProps, ILessonP
          * Set the initial value for the component state
          */
         this.state = {
-            lessonMenu: null // <- we will fetch this from the service, so we need to set it as null for now
+            lessonMenu: null, // <- we will fetch this from the service, so we need to set it as null for now
+            lessonPlans: [] // <- set this to an empty array for now so that it is defined, but we don't see any data until we fetch some
         };
     }
 
@@ -88,7 +92,20 @@ export class LessonPlanner extends React.Component<ILessonPlannerProps, ILessonP
      * @param lessonId This ID of the lesson which is returned from the menu
      */
     handleLessonChosen(lessonId: number): void {
+        if (lessonId == null) {
+            // If null is passed in this means that we have selected a different item from the menu somewhere, so why not clear the lesson plans to save confusion
+            this.setState({ lessonPlans: [] });
+        }
+        else {
+            // Otherwise we fetch the lesson plan data for the chosen lesson
+            let lpService = new LessonPlanService();
 
+            lpService.GetAllLessonPlans(lessonId).then((result) => {
+                this.setState({
+                    lessonPlans: result
+                });
+            });
+        }
     }
 
     /**
@@ -106,6 +123,10 @@ export class LessonPlanner extends React.Component<ILessonPlannerProps, ILessonP
             // We can only return 1 top level html component here
             <div>
                 <LessonPlannerLessonMenu menu={this.state.lessonMenu} onLessonChosen={this.handleLessonChosen.bind(this)} />
+
+                <hr />
+
+                <LessonPlanList lessonPlans={this.state.lessonPlans} />
 
                 <Collapsable openDefault={false} title="Open me">
                     Here is some content!

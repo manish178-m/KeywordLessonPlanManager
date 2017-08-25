@@ -1,1 +1,5 @@
-export interface IWarmUp { }
+export interface IWarmUp {
+    Id: number;
+    Name: string;
+    Description: string;
+}

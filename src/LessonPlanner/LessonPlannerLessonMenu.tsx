@@ -23,20 +23,24 @@ export class LessonPlannerLessonMenu extends React.Component<ILessonPlannerLesso
             chosenCourseId: id,
             chosenUnitId: null,
             chosenLessonId: null
+        }, () => {
+            this.props.onLessonChosen(null);
         });
     }
 
     handleChosenUnit(id: number): void {
-        console.log(id);
         this.setState({
             chosenUnitId: id,
             chosenLessonId: null
+        }, () => {
+            this.props.onLessonChosen(null);
         });
     }
 
     handlChosenLesson(id: number): void {
         console.log(id);
         this.setState({ chosenLessonId: id });
+        this.props.onLessonChosen(id);
     }
 
     render(): JSX.Element {
