@@ -4,6 +4,7 @@ import { LocalDataManager } from './LocalDataManager';
 export class DataRetriever {
     // This is a trial run for now. It accepts a type of T so it knows what it will return. 
     // And the "transformer" function defines how to convert generic list data into the type T we want. 
+    //public FetchList<T>(fetchFnc: () => void, transformer: (d: any) => T): T[] {
     public FetchList<T>(transformer: (d: any) => T): T[] {
         let returnVal: T[] = [];
 
