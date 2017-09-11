@@ -6,4 +6,9 @@ class Startup
     public static function BeginContext()
     {
     }
+
+    public static function ResponseHeaders()
+    {
+        //header()
+    }
 }

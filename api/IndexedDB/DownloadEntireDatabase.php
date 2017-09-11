@@ -8,6 +8,7 @@ require_once("../Lesson/GetAllLessons.php");
 
 // TODO: All initialisation stuff to occur in BeginContext. For now focus on development time. Need to get something ready for James
 //Startup::BeginContext();
+Startup::ResponseHeaders();
 
 // Fetch all tables from database and build it into a downloadable json file
 $courses = GetAllCourses();
