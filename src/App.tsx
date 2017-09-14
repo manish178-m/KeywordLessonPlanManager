@@ -5,6 +5,9 @@ import * as ReactDOM from "react-dom";
 // Import child components
 import { LessonPlanner } from './LessonPlanner/LessonPlanner';
 
+// Import global services
+
+
 // Setup the bootstrapper for the app ready for react
 const AppRouterBootstrap = () => (
     <div>

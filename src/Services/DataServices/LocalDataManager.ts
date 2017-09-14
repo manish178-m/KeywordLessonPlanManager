@@ -4,11 +4,25 @@
 export class LocalDataManager {
     constructor() { }
 
-    LocalCopyExists(): boolean {
+    static LocalCopyExists(): boolean {
         return false;
     }
 
-    IsBrowserOnline(): boolean {
+    static DownloadDatabase(): Promise<any> {
+        return new Promise<boolean>((resolve, reject) => {
+            // Do some stuff
+            resolve({ data: [] } as any);
+        });
+    }
+
+    static CloneFullDatabase(database: any): Promise<boolean> {
+        return new Promise<boolean>((resolve, reject) => {
+            // Do some stuff
+            resolve(true);
+        });
+    }
+
+    static IsBrowserOnline(): boolean {
         return true;
     }
 }
