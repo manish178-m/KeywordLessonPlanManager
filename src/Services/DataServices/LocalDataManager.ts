@@ -15,6 +15,13 @@ export class LocalDataManager {
         });
     }
 
+    static CreateDatabaseStructure(): Promise<boolean> {
+        return new Promise<boolean>((resolve, reject) => {
+            // Do some stuff
+            resolve(true);
+        });
+    }
+
     static CloneFullDatabase(database: any): Promise<boolean> {
         return new Promise<boolean>((resolve, reject) => {
             // Do some stuff
