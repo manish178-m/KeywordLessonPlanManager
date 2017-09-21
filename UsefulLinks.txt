@@ -10,3 +10,7 @@ https://www.html5rocks.com/en/tutorials/webdatabase/websql-indexeddb/
 MySQLi
 ------
 http://codular.com/php-mysqli
+
+ReactJS
+-------
+https://stackoverflow.com/questions/31918950/reactjs-how-to-get-all-the-values-from-input-fields
