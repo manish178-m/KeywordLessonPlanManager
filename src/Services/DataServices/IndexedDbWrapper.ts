@@ -15,6 +15,22 @@ export class IndexedDbWrapper {
         this.IndxDb = window.indexedDB;
     }
 
+    CheckIfDatabaseExists(): Promise<boolean> {
+        return new Promise<boolean>((resolve: any, reject: any) => {
+            var req: IDBOpenDBRequest;
+            req = this.IndxDb.open(localDbConfig.DB_NAME);
+            req.onupgradeneeded = (e: any) => {
+                e.target.transaction.abort();
+                // Delete the copy this will have just made ready to be recreated properly later
+                this.IndxDb.deleteDatabase(localDbConfig.DB_NAME);
+                resolve(false);
+                return;
+            };
+
+            resolve(true);
+        });
+    }
+
     OpenInitDB() {
         var req: IDBOpenDBRequest;
         req = this.IndxDb.open(localDbConfig.DB_NAME);

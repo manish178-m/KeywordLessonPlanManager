@@ -1,0 +1,12 @@
+IndexedDB
+---------
+http://www.codemag.com/article/1411041
+https://stackoverflow.com/questions/17468963/check-if-indexeddb-database-exists
+https://visualstudiomagazine.com/articles/2016/09/01/working-with-indexeddb.aspx
+https://code.tutsplus.com/tutorials/working-with-indexeddb--net-34673
+https://stackoverflow.com/questions/12133306/when-and-why-is-the-onupgradeneeded-method-called-in-indexeddb
+https://www.html5rocks.com/en/tutorials/webdatabase/websql-indexeddb/
+
+MySQLi
+------
+http://codular.com/php-mysqli
